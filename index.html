@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoker Game</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      #skillsToInvoke {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50%; /* Примерная высота, в зависимости от размера ваших изображений. */
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-gray-900 text-white h-screen flex justify-center items-center"
+  >
+    <div class="container p-6 bg-gray-800 rounded-xl shadow-lg">
+      <h1 class="text-2xl mb-4 text-center">Invoker Game</h1>
+
+      <div id="spheres" class="flex justify-center mb-4 space-x-4">
+        <button
+          onclick="addSphere('Q')"
+          class="px-4 py-2 bg-gray-600 hover:bg-yellow-700 focus:outline-none rounded-lg focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
+        >
+          Q
+        </button>
+        <button
+          onclick="addSphere('W')"
+          class="px-4 py-2 bg-gray-600 hover:bg-yellow-700 focus:outline-none rounded-lg focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
+        >
+          W
+        </button>
+        <button
+          onclick="addSphere('E')"
+          class="px-4 py-2 bg-gray-600 hover:bg-yellow-700 focus:outline-none rounded-lg focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
+        >
+          E
+        </button>
+      </div>
+
+      <div id="currentCombo" class="flex justify-center items-center space-x-2 mb-4"></div>
+
+
+      <div class="flex justify-center mb-4">
+        <button
+          id="invoke"
+          onclick="invokeSkill()"
+          class="px-6 py-2 bg-yellow-600 hover:bg-yellow-700 focus:outline-none rounded-lg focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 transition mr-4"
+        >
+          Invoke (R)
+        </button>
+        <button
+          id="reset"
+          onclick="resetGame()"
+          class="px-6 py-2 bg-red-600 hover:bg-red-700 focus:outline-none rounded-lg focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition"
+        >
+          Reset (Space)
+        </button>
+      </div>
+
+      <div id="skillsToInvoke" class="rounded-full text-lg text-center mb-4"></div>
+
+    </div>
+
+    <div
+      id="modal"
+      class="fixed w-full h-full top-0 left-0 flex items-center justify-center hidden"
+    >
+      <div
+        class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"
+      ></div>
+      <div
+        class="modal-container bg-gray-800 w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto"
+      >
+      <div class="modal-content py-4 text-left px-6 text-white text-center">
+
+          <div class="flex justify-between items-center pb-3">
+            
+          </div>
+          <p class="mb-4" id="finalTime">Time: 0s</p>
+          <button
+            onclick="closeModal()"
+            class="px-4 py-2 bg-yellow-600 hover:bg-yellow-700 focus:outline-none rounded-lg focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 transition"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
